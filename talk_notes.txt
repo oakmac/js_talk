@@ -1,0 +1,110 @@
+JavaScript Talk
+> business cards
+
+Introduction
+> Chris Oakman, UI Developer at cPanel
+> been using JavaScript for several years now, but exclusively for cPanel since February of this year
+> focusing on a single language really makes you learn the ins and outs of it
+> JavaScript is much more complex than what most people know
+
+Overview
+> what is JavaScript?  also what is isn't
+> quick history of the language
+> about the language, features, concepts, etc
+> get into examples
+> example object structure
+> example DOM manipulation
+> example AJAX 
+> example XSS
+> future of the language, where it's headed
+> questions
+
+What is JavaScript NOT?
+> before I tell you what JavaScript is, I'd like to clarify what is isn't first
+> nothing to do with Java.  AT ALL
+  > Java is a language, JavaScript is a language
+  > they share some syntactical similarities, but to the same degree and JavaScript and C
+  > marketing mistake from the mid-90's that has confused the masses ever since
+> not the DOM
+  > JavaScript is a language completely independent from HTML markup.  
+  > They are almost always seen together, but in practice are two completely different technologies.
+  > it can be used on it's own for other applications - XUL chrome
+  > HTML gets represented in JavaScript as objects (DOM object model - more on this later)
+
+What is JavaScript?
+> history
+  > invented in 1995 for Netscape
+  > rushed to market with flaws, but the underlying principles were sound/awesome
+  > the core of the language was standardized in 97 by EMCA and 98 by ISO (ECMAScript)
+  > there are various implementations of the language, usually browser-specific
+  > implementations are MOSTLY the same, the big difference between browsers are differences in the DOM models
+  > early 2000's were essentially the "dark ages" for JS: slow, limited functionality due to incomplete DOM models
+  > if you tried to do something with JS you would hit these technical hurdles, so nobody bothered
+  > google maps and gmail were "wake up calls" to browser developers of the capabilities for JS, many other sites followed
+  > in 2008-2009 JavaScript implementations got some major attention and speed-boost (Google Chrome V8, WebKit SquirrelFish, Firefox 3.5 TraceMonkey)
+  > since that time JS development has gotten some major attention for clientside development (more things are possible)
+  > AES encryption speed demo
+  
+> From Wikipedia: "JavaScript is an object-oriented scripting language used to enable programmatic access to objects..."
+> "JavaScript is ... characterized as a dynamic, weakly typed, prototype-based language with first-class functions..."
+> What the heck does that mean?
+> scripting / dynamic language
+  > not compiled
+  > you type it, it gets interpreted, it runs (similar to PHP, Perl, Python)
+  > to my knowledge there are no plans to build a compiler for JavaScript, the closest thing is minification (YUICompressor)
+> runs clientside
+  > the code executes on the client's computer; not on your server
+  > since it's not compiled the code is generally "available"
+  > this doesn't mean "open source" by definition of your license, but it's something to think about when you write JS code
+  > people can fairly easily look at your code and figure out how it works
+> weakly typed
+  > you can mix strings and numbers
+  > you can access object values that you haven't declared; they will be created on the fly
+  > potential for errors, it's up to the programmer to make sure their variables are being used the way they want them to be
+> prototype-based / first-class functions
+  > powerful features that most people who write JS don't know or understand
+  > basically means that functions are objects
+  > you can add properties to all objects of a certain kind with prototype
+  > do example
+
+> Example time!
+> How does JavaScript work in your browser?
+  > <script tags> can either include a file or put it right into the page
+  > browser has to wait for everything to load before it will execute; goes top to bottom
+  > it is best to put your external files near the bottom of the page and aggregate/minify them to reduce the number of http requests and file size
+
+> Object syntax (object.html)
+  > simple object: CPANEL.company
+  > nested objects: CPANEL.work_day.working, CPANEL.work_day.lunch
+  > dot notation vs associative array notation: CPANEL["work_day"]["working"]  
+  > functions in objects: CPANEL.conference.js_talk()
+
+> What is JavaScript used for?
+> DOM manipulation (dom_objects.html)
+  > in order to understand DOM manipulation you have to understand how the DOM works in the browser
+  > browser parses your markup and puts it into objects internally (this is one of the reasons why it's beneficial to have valid markup)
+  > the browser allows access to these objects via JavaScript and the document object, which exists on every page
+  > important to note that historically different browsers do this differently (due to parsing differences)
+  > this has been a major source of frustration for web developers; modern frameworks help to abstract and neutralize the differences
+  > show example
+  > var document = null; and show that the example doesn't work
+  > create a div with blue background and change it to green
+  > <div id="test_div" style="height: 50px; width: 50px; background: blue"></div>
+  > document.getElementById("test_div").style.background = "green";
+  > show innerHTML property
+
+> AJAX Example (ajax.html)
+> JSON Example (ajax_json.html)
+> XSS Examle (xss.php)
+
+Future of JavaScript
+> will be the primary integration method for HTML5 elements (ironically, it was originally created for this purpose and Java applets)
+> faster and faster
+> Libraries like YUI, jQuery, etc will continue to abstract the language and make things easier (objects, widgets, etc)
+> in a very real sense it is possible today to "know" jQuery without "knowing" JavaScript
+> JavaScript as a compilation target for other languages: Google Web Toolkit, many other fledgling projects doing something similar
+> I'm not super-bullish on this as JavaScript is a very capable language in an of itself, it just hasn't been treated as one from the industry
+> I think you will see more JavaScript abstraction in JavaScript as opposed to other languages abstracting it (but you never know the future)
+
+Further Education
+> Douglas Crockford book and lectures - JavaScript: The Good Parts
