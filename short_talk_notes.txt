@@ -1,0 +1,94 @@
+JavaScript Talk
+> business cards
+> prep VM for differnet browser/speed
+
+Introduction
+Hi, my name is Chris Oakman and I'm a user interface developer at cPanel.
+This talk is about JavaScript: the world's most popular language
+the point of this talk to to introduce you to the language and then show you what it's capable of
+
+Overview of the talk:
+> I'm going to tell you what JavaScript is and give a quick history.
+> Then we're going to get right into the examples.
+> simple DOM manipulation
+> example AJAX 
+> example XSS
+> future of the language, where it's headed
+> questions
+
+before I tell you what JavaScript is, I'd like to clarify what is isn't first
+javascript is not java
+Java is a language, JavaScript is a language
+Java has as much to do with JavaScript as PHP does with C++
+marketing mistake from the mid-90's that has confused the masses ever since
+tell story about people I met last night
+
+> invented in 1995 for Netscape
+> rushed to market with flaws, but the underlying principles were sound/awesome
+> the core of the language was standardized in 97 by EMCA and 98 by ISO (ECMAScript)
+  
+> JavaScript is the language that runs in the browser
+> you embed it in your webpages either through an external script or directly onto the page
+> the code executes on the client's computer; not on your server
+> since every browser in the world has an implementation of JavaScript; it's the most "available" language on the planet
+> there are more JavaScript interpreters out there than for any other language; it's platform neutral (browser is it's platform)
+
+From Wikipedia: "JavaScript is an object-oriented scripting language used to enable programmatic access to objects..."
+javascript as a language is an independent technology from the browser
+it's almost always found in the browser, but it can be used for other things (Mozilla XUL)
+
+> since it's not compiled the code is generally "available"
+> this doesn't mean "open source" by definition of your license, but it's something to think about when you write JS code
+> people can fairly easily look at your code and figure out how it works
+> it just doesn't make sense to write important proprietary code in JavaScript
+
+Let's get into the examples:
+
+Simple DOM manipulation (dom.html)
+> in order to understand DOM manipulation you have to understand how the DOM works in the browser
+> browser parses your markup and puts it into objects internally (this is one of the reasons why it's beneficial to have valid markup)
+> just modifying properites of JS objects
+> create a div with blue background and change it to green
+> <div id="test_div" style="height: 50px; width: 50px; background: blue"></div>
+> document.getElementById("test_div").style.background = "green";
+> show innerHTML property
+
+> AJAX Example (ajax.html)
+> get data from the server without a page refresh
+> old paradigm of form -> page submit -> new page
+> new paradigm -> form submission can happen programmatically, no need to refresh the page (just update DOM)
+> not that complicated; end users LOVE it
+> show 404 error
+  
+> JSON Example (ajax_json.html)
+> JSON is a data exchange format; it does the exact same thing as XML
+> JSON is better than XML
+> JSON is javascript; it's a subset of the language
+> the BEST (the only) way to transfer data from server to page (ie: anything more than just one variable)
+> show eval mistake
+
+> XSS Example (xss.php)
+  > JavaScript is fully capable of being a security threat to your website or web application.
+  > This is not a toy language; it is powerful and can do real damage.
+  > That payload is 219 characters long and contains no single quote or double quote characters.  
+  > It's all alphanumeric except a handful of special characters that you regularly find in text: < > ( ) % /.
+  > Would pass any SQL injection filter and sit happily in your database.
+
+Future of JavaScript
+> faster and faster
+> in 2008-2009 JavaScript implementations got some major attention and speed-boost (Google Chrome V8, WebKit SquirrelFish, Firefox 3.5 TraceMonkey)
+
+> HTML5 is already here; for the first time in history browsers are ahead of web developers (this is a good thing)
+> will be the primary integration method for HTML5 elements (ironically, it was originally created for this purpose and Java applets)
+
+> Libraries like YUI, jQuery, etc will continue to abstract the language and make things easier (objects, widgets, etc)
+> in a very real sense it is possible today to "know" jQuery without "knowing" JavaScript
+> I think you will see more JavaScript abstraction in JavaScript as opposed to other languages abstracting it (but you never know the future)
+
+> JavaScript as a compilation target for other languages: Google Web Toolkit, many other fledgling projects doing something similar
+> I'm not super-bullish on this as JavaScript is a very capable language in an of itself, it just hasn't been treated as one from the industry
+
+HTML5 EXAMPLES
+
+Further Education
+> Douglas Crockford book and lectures - JavaScript: The Good Parts

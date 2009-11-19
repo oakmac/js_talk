@@ -10,16 +10,16 @@
 	border: 1px dashed black;
 }
 </style>
-<script type="text/javascript" src="http://yui.yahooapis.com/2.7.0/build/utilities/utilities.js"></script>
-<script type="text/javascript" src="http://yui.yahooapis.com/2.8.0r4/build/json/json-min.js"></script>
+<script type="text/javascript" src="../yui/build/utilities/utilities.js"></script>
+<script type="text/javascript" src="../yui/build/json/json-min.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 var start_ajax = function() {
 	var callback = {
 		success : function(o) {
 			try {
-				var result = eval('(' + o.responseText + ')');
 				//var result = YAHOO.lang.JSON.parse(o.responseText);
+				var result = eval('(' + o.responseText + ')');
 				
 				var html = "<ul>";
 				for (var i in result) {

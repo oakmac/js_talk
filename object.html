@@ -5,11 +5,22 @@
 <script type="text/javascript">
 //<![CDATA[
 var CPANEL = {
-	company : "awesome"
+	company : "awesome",
+	lunch : "tasty",
+	
+	foo : function() {
+		alert("bar");
+	},
+	
+	conference : {
+		js_talk : "fun",
+		networking_event : "funner"
+	}
 };
 
 var show_object_properties = function() {
-	alert( CPANEL.company );
+	//alert( CPANEL.conference.js_talk );
+	CPANEL.foo();
 };
 //]]>
 </script>

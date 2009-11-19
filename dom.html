@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>DOM Objects Example</title>
+<script type="text/javascript">
+//<![CDATA[
+var show_username = function() {
+	alert( document.forms["myform"].username.value );
+};
+
+var show_password = function() {
+	alert( document.forms["myform"].password.value );
+};
+
+var change_div_color = function() {
+	document.getElementById("my_div").style.backgroundColor = "yellow";
+	//document.getElementById("my_div").style.height = "500px";
+};
+
+var change_div_text = function() {
+	document.getElementById("my_div").innerHTML = "cPanel is great!";
+};
+//]]>
+</script>
+</head>
+<body>
+	<input type="button" value="Show Username" onclick="show_username()" />&nbsp;<input type="button" value="Show Password" onclick="show_password()" /><br /><br />
+	<form name="myform">
+		<fieldset style="width: 275px">
+		username: <input type="text" name="username" value="scooby" /><br />
+		password: <input type="password" name="password" value="doo" />
+		</fieldset>
+	</form>
+	<br />
+	<br />
+	<input type="button" value="Change Color" onclick="change_div_color()" />&nbsp;<input type="button" value="Change Text" onclick="change_div_text()" /><br /><br />
+	<div id="my_div" style="width: 200px; padding: 20px; background: green">My div.</div>
+</body>
+</html>

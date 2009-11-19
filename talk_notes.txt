@@ -95,7 +95,12 @@ What is JavaScript?
 
 > AJAX Example (ajax.html)
 > JSON Example (ajax_json.html)
-> XSS Examle (xss.php)
+> XSS Example (xss.php)
+  > JavaScript is fully capable of being a security threat to your website or web application.
+  > This is not a toy language; it is powerful and can do real damage.
+  > That payload is 219 characters long and contains no single quote or double quote characters.  It's all alphanumeric except a handful of special characters that you regularly find in text: < > ( ) % /.
+  > Would pass any SQL injection filter and sit happily in your database.
+
 
 Future of JavaScript
 > will be the primary integration method for HTML5 elements (ironically, it was originally created for this purpose and Java applets)

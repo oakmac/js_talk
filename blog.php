@@ -2,6 +2,7 @@
 	$alice_password = "alice_password";
 	$bob_password = "bob_password";
 	$logged_in = false;
+	$comments_file = "blog.data";
 	
 	// attempt to log the user in
 	if ($_POST["password"] == $alice_password || $_COOKIE["password"] == sha1($alice_password)) {
@@ -26,14 +27,22 @@
 	border: 1px dashed black;
 }
 </style>
-<script type="text/javascript" src="http://yui.yahooapis.com/2.7.0/build/utilities/utilities.js"></script>
-<script type="text/javascript" src="http://yui.yahooapis.com/2.8.0r4/build/cookie/cookie-min.js"></script> 
+<script type="text/javascript" src="../yui/build/utilities/utilities.js"></script>
+<script type="text/javascript" src="../yui/build/cookie/cookie-min.js"></script> 
 <script type="text/javascript">
 //<![CDATA[
 var logout = function() {
 	YAHOO.util.Cookie.remove("password");
 	window.location = window.location;
 };
+
+// to ease debugging
+var init = function() {
+	if (YAHOO.util.Cookie.get("password") == null) {
+		YAHOO.util.Cookie.set("password", "none");
+	}
+};
+//YAHOO.util.Event.onDOMReady(init);
 //]]>
 </script>
 </head>
@@ -56,7 +65,7 @@ if ($logged_in == true) {
 else {
 	?>
 	You are not logged in.<br /><br />
-	<form action="" method="POST">
+	<form action="" method="post">
 		Password: <input type="password" name="password" /> <input type="submit" value="Log in" />
 	</form>
 	<hr />
@@ -65,23 +74,20 @@ else {
 
 // add comments
 if ($logged_in == true && $_POST["comment"] != "") {
-	//echo "xx".$_POST["comment"]."xx";
-	//die;
-	add_comment(time(), $_POST["user"], $_POST["comment"]);
+	add_comment($comments_file, time(), $_POST["user"], $_POST["comment"]);
 }
 
 // print comments
 echo '<div id="comments">';
-$comments = file("comments.data");
+$comments = file($comments_file);
 foreach ($comments as $comment) {
 	if (trim($comment) != "") echo $comment . "<hr />";
 }
 echo '</div>';
 
 // functions
-function add_comment($time, $user, $comment) {
-	$myFile = "comments.data";
-	$fh = fopen($myFile, 'a') or die("can't open file");
+function add_comment($comments_file, $time, $user, $comment) {
+	$fh = fopen($comments_file, 'a') or die("can't open file");
 	$stringData = "On " . date("r", $time) . " $user wrote:<br />";
 	$stringData .= '<div class="comment">' . $comment . "</div>\n";
 	fwrite($fh, $stringData);
