@@ -18,8 +18,8 @@ var start_ajax = function() {
 	var callback = {
 		success : function(o) {
 			try {
-				//var result = YAHOO.lang.JSON.parse(o.responseText);
-				var result = eval('(' + o.responseText + ')');
+				var result = YAHOO.lang.JSON.parse(o.responseText);
+				//var result = eval('(' + o.responseText + ')');
 				
 				var html = "<ul>";
 				for (var i in result) {
